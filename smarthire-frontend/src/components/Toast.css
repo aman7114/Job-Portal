@@ -1,0 +1,24 @@
+.toast-container {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 9999;
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  font-weight: 500;
+  color: var(--text-light);
+  border-left: 4px solid;
+}
+
+.toast-container.success .toast-content {
+  border-left-color: var(--success);
+}
+
+.toast-container.error .toast-content {
+  border-left-color: var(--danger);
+}

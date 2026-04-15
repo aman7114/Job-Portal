@@ -1,0 +1,21 @@
+:root {
+  --primary: #4f46e5;
+  --secondary: #7c3aed;
+  --bg-dark: #0f172a;
+  --bg-light: #f8fafc;
+  --text-light: #ffffff;
+  --text-dark: #0f172a;
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --glass: blur(10px);
+
+  /* Expanded shades & semantics */
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
