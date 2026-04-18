@@ -1,15 +1,18 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../redux/authSlice';
+import { useState } from 'react';
 import './Navbar.css';
 
 const Navbar = () => {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogout = () => {
     dispatch(logout());
+    setIsMenuOpen(false);
   };
 
   const dashboardLink = user?.role === 'RECRUITER' ? '/dashboard/recruiter' : '/dashboard/candidate';
@@ -18,10 +21,15 @@ const Navbar = () => {
     <nav className="navbar-glass">
       <div className="container nav-container">
         <div className="nav-brand">
-          <Link to="/">Smart<span className="text-gradient">Hire</span></Link>
+          <Link to="/" onClick={() => setIsMenuOpen(false)}>Smart<span className="text-gradient">Hire</span></Link>
         </div>
         
-        <ul className="nav-links">
+        <button className="mobile-menu-btn" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+           {isMenuOpen ? '✕' : '☰'}
+        </button>
+
+        <div className={`nav-wrapper ${isMenuOpen ? 'open' : ''}`}>
+          <ul className="nav-links">
           <li>
             <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link>
           </li>
@@ -32,9 +40,6 @@ const Navbar = () => {
             <>
               <li>
                 <Link to={dashboardLink} className={location.pathname.includes('dashboard') ? 'active' : ''}>Dashboard</Link>
-              </li>
-              <li>
-                <Link to="#profile">Profile</Link>
               </li>
             </>
           )}
@@ -51,6 +56,7 @@ const Navbar = () => {
               <Link to="/register" className="btn btn-primary" style={{ padding: '8px 16px' }}>Register</Link>
             </>
           )}
+          </div>
         </div>
       </div>
     </nav>

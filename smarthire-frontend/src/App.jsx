@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
@@ -38,6 +38,18 @@ function App() {
             <Route path="/dashboard/recruiter" element={<RecruiterDashboard />} />
             <Route path="/post-job" element={<PostJob />} />
           </Route>
+
+          {/* 404 Fallback Route */}
+          <Route path="*" element={
+            <div className="page-wrapper animate-fade-in" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <div className="glass empty-state" style={{ textAlign: 'center', padding: '60px' }}>
+                <h1 style={{ fontSize: '3rem', color: 'var(--primary)', marginBottom: '16px' }}>404</h1>
+                <h2 style={{ marginBottom: '16px' }}>Page Not Found</h2>
+                <p style={{ color: 'rgba(255, 255, 255, 0.6)', marginBottom: '32px' }}>The page you are looking for doesn't exist or has been moved.</p>
+                <Link to="/" className="btn btn-primary">Return Home</Link>
+              </div>
+            </div>
+          } />
         </Routes>
       </div>
     </Router>

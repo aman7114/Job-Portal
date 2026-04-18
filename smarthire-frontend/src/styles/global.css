@@ -195,3 +195,57 @@ h1, h2, h3, h4 {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255,255,255,0.3);
 }
+
+/* Skeleton Loader */
+.skeleton-loader {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite linear;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Micro Interactions */
+.btn {
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.input-control {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25);
+  outline: none;
+}
+
+/* Avatar Glow */
+.avatar-glow {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.avatar-glow:hover {
+  box-shadow: 0 0 25px rgba(79, 70, 229, 0.8) !important;
+  transform: scale(1.05);
+}

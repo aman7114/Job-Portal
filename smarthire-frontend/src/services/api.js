@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080/api', // Since Spring Boot runs on 8080
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api', // Uses env var in production or fallback in dev
 });
 
 api.interceptors.request.use((config) => {
