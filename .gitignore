@@ -1,0 +1,36 @@
+# ======================
+# Environment files
+# ======================
+.env
+.env.local
+
+# ======================
+# Java / Spring Boot
+# ======================
+target/
+*.log
+*.class
+
+# application secrets (IMPORTANT)
+src/main/resources/application.properties
+src/main/resources/application.yml
+
+# ======================
+# Node / React
+# ======================
+node_modules/
+build/
+dist/
+
+# ======================
+# OS files
+# ======================
+.DS_Store
+Thumbs.db
+
+# ======================
+# IDE files
+# ======================
+.vscode/
+.idea/
+*.iml
